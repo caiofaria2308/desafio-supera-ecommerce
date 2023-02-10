@@ -90,20 +90,8 @@ class CheckoutSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         user = self.context["request"].user
         validated_data["user"] = user
-        create = super().create(validated_data)
-        cart = Cart.objects.filter(user=user)
-        if cart.exists():
-            cart.first().update_shipping_fee(cart)
-        else:
-            create.delete()
-        for item in cart:
-            CheckoutItem.objects.create(
-                checkout=create,
-                product=item.product,
-                price=item.price,
-                shipping_fee=item.shipping_fee
-            )
-        cart.delete()
+        create: Checkout = super().create(validated_data)
+        create.checkout_items()
         return create
 
 

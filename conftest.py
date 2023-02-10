@@ -1,14 +1,18 @@
 import pytest
 from pytest_factoryboy import register
 
-from apps.account.tests.factories import UserFactory, GroupFactory, UserAddressFactory
+from apps.order.tests.factories import CartFactory, CheckoutFactory, CheckoutItemFactory
 from apps.store.tests.factories import ProductFactory
+from apps.account.tests.factories import UserFactory, GroupFactory, UserAddressFactory
 
 # accounts
 register(UserFactory)
 register(UserAddressFactory)
 register(GroupFactory)
 register(ProductFactory)
+register(CartFactory)
+register(CheckoutFactory)
+register(CheckoutItemFactory)
 
 
 @pytest.fixture

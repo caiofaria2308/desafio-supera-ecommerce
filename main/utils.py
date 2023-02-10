@@ -51,3 +51,10 @@ def get_views():
             view = pattern.callback
             views.extend(view)
     return views
+
+def get_permissions(permission_codename_list):
+    from django.contrib.auth.models import Permission
+
+    if isinstance(permission_codename_list, list):
+        return Permission.objects.filter(codename__in=permission_codename_list)
+    return Permission.objects.get(codename=permission_codename_list)

@@ -72,6 +72,20 @@ class Checkout(BaseModel):
     def __str__(self) -> str:
         return f"Pedido {self.number} do {self.user}"
 
+    def checkout_items(self):
+        cart = Cart.objects.filter(user=self.user)
+        if cart.exists():
+            cart.first().update_shipping_fee(cart)
+        else:
+            self.delete()
+        for item in cart:
+            CheckoutItem.objects.create(
+                checkout=self,
+                product=item.product,
+                price=item.price,
+                shipping_fee=item.shipping_fee
+            )
+        cart.delete()
 
 @with_author
 class CheckoutItem(BaseModel):
