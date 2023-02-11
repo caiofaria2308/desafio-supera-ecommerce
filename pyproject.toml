@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "desafio-supera-ecommerce"
+version = "1.0.0"
+description = "API de um pseudo e-commerce de games"
+authors = ["Caio <caiofaria2308@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+Django = "^4.1.6"
+psycopg2 = "^2.9.5"
+djangorestframework = "^3.14.0"
+django-filter = "^22.1"
+djangorestframework-simplejwt = "^5.2.2"
+drf-yasg = "^1.21.5"
+autopep8 = "^2.0.1"
+isort = "^5.12.0"
+python-decouple = "^3.7"
+django-author = "^1.2.0"
+django-soft-delete = "^0.9.21"
+django-cpf-cnpj = "^1.0.0"
+django-autoslug = "^1.9.8"
+pytest-factoryboy = "^2.5.1"
+pytest-django = "^4.5.2"
+django-factory-generator = "^1.0.4"
+Pillow = "^9.4.0"
+progress = "^1.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
