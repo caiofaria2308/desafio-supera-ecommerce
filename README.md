@@ -7,6 +7,7 @@ Pseudo ecommerce
 * Necessário ter Docker-Compose instalado
 
 ```
+$ cp .env.model .env
 $ make up
 ```
 
