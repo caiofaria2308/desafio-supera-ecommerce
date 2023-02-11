@@ -52,8 +52,7 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_DB: desafio-supera
           POSTGRES_HOST: 127.0.0.1
-          POSTGRES_PORT: $
-      - name: Run Tests
+          POSTGRES_PORT: 5432
         run: |
           py.test
         env:
@@ -61,4 +60,4 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_DB: desafio-supera
           POSTGRES_HOST: 127.0.0.1
-          POSTGRES_PORT: $
+          POSTGRES_PORT: 5432
