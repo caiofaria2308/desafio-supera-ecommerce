@@ -98,16 +98,25 @@ WSGI_APPLICATION = 'main.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config("POSTGRES_DB"),
-        'HOST': config("POSTGRES_HOST"),
-        'USER': config("POSTGRES_USER"),
-        'PASSWORD': config("POSTGRES_PASSWORD"),
-        'PORT': config("POSTGRES_PORT"),
+if config("POSTGRES_DB", None):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': config("POSTGRES_DB"),
+            'HOST': config("POSTGRES_HOST"),
+            'USER': config("POSTGRES_USER"),
+            'PASSWORD': config("POSTGRES_PASSWORD"),
+            'PORT': config("POSTGRES_PORT"),
+        }
     }
-}
+else:
+    # GITHUB pytest
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite',
+            'NAME': "db-test",
+        }
+    }
 
 
 # Password validation
