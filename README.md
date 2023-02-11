@@ -6,10 +6,9 @@ Pseudo ecommerce
 ## Installation
 * Necessário ter Docker-Compose instalado
 
-   ```
-    $ make up
-    $ make loaddata
-   ```
+```
+$ make up
+```
 
 ## Load products
     
