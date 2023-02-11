@@ -113,7 +113,7 @@ else:
     # GITHUB pytest
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite',
+            'ENGINE': 'django.db.backends.sqlite3',
             'NAME': "db-test",
         }
     }
